@@ -1,0 +1,78 @@
+<h1 class="mat-display-2">Come and say hi!</h1>
+
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3%"
+    fxLayoutAlign="space-evenly center">
+    <div fxFlex="20%" fxShow.lt-md="false">
+        <a href="//twitter.com" target="_blank">
+            <fa-icon [icon]="faTwitter" class="fa-10x"></fa-icon>
+        </a>
+    </div>
+    <div fxFlex="20%" fxShow.lt-md="false">
+        <a href="//artstation.com" target="_blank">
+            <fa-icon [icon]="faArtstation" class="fa-10x"></fa-icon>
+        </a>
+    </div>
+    <div fxFlex="20%" fxShow.lt-md="false">
+        <a href="//linkedin.com" target="_blank">
+            <fa-icon [icon]="faLinkedinIn" class="fa-10x"></fa-icon>
+        </a>
+    </div>
+    <div fxFlex="20%" fxShow.lt-md="false">
+        <a href="//" target="_blank">
+            <fa-icon [icon]="faEnvelope" class="fa-10x"></fa-icon>
+        </a>
+    </div>
+    <div fxFlex="20%" fxShow.gt-sm="false">
+        <a href="//twitter.com" target="_blank">
+            <fa-icon [icon]="faTwitter" class="fa-5x"></fa-icon>
+        </a>
+    </div>
+    <div fxFlex="20%" fxShow.gt-sm="false">
+        <a href="//artstation.com" target="_blank">
+            <fa-icon [icon]="faArtstation" class="fa-5x"></fa-icon>
+        </a>
+    </div>
+    <div fxFlex="20%" fxShow.gt-sm="false">
+        <a href="//linkedin.com" target="_blank">
+            <fa-icon [icon]="faLinkedinIn" class="fa-5x"></fa-icon>
+        </a>
+    </div>
+    <div fxFlex="20%" fxShow.gt-sm="false">
+        <a href="//" target="_blank">
+            <fa-icon [icon]="faEnvelope" class="fa-5x"></fa-icon>
+        </a>
+    </div>
+</div>
+<!-- <h1 class="mat-display-2">Come and say hi!</h1> -->
+
+
+
+<mat-horizontal-stepper *ngIf="formFilling" [linear]=true #stepper (selectionChange)="checkStep($event)">
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Name</ng-template>
+            <mat-form-field >
+                <input matInput placeholder="Name" formControlName="firstCtrl" autocomplete = "off" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Email</ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Email" formControlName="secondCtrl" autocomplete = "off" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Complete</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel >Done!</ng-template>
+        Thank you! I will get back to you as soon as possible!
+    </mat-step>
+</mat-horizontal-stepper>
